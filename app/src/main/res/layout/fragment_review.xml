@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- TODO: Update blank fragment layout -->
+<ScrollView
+    android:id="@+id/scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_marginLeft="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Ratings &amp; Reviews"
+        android:textAppearance="@android:style/TextAppearance.Material.WindowTitle"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rating"
+        android:layout_alignStart="@+id/rating"
+        android:layout_marginTop="16dp"
+        android:background="?android:selectableItemBackground"
+        android:fontFamily="@font/roboto_medium"
+        android:text="4.7"
+        android:textColor="#333333"
+        android:textSize="48sp"
+        android:textStyle="bold" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="@android:style/Widget.Material.Light.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_rating"
+        android:layout_alignStart="@+id/txt_rating"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#0f9d58"
+        android:numStars="5"
+        android:progressTint="#0f9d58"
+        android:rating="4.3"
+        android:stepSize="1" />
+
+    <TextView
+        android:id="@+id/ratingNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ratingBar"
+        android:layout_alignStart="@+id/ratingBar"
+        android:layout_alignEnd="@+id/ratingBar"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="3450"
+        android:textColor="#333333"
+        android:textSize="12sp" />
+
+
+    <com.taufiqrahman.reviewratings.RatingReviews
+        xmlns:bar="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/rating_reviews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/txt_rating"
+        android:layout_marginStart="36dp"
+        android:layout_toEndOf="@+id/txt_rating"
+        android:layout_marginEnd="8dp"
+        bar:animation="true"
+        bar:max_value="100"
+        bar:show_label="true"
+        bar:show_raters="false"
+        bar:spaces="7dp"
+        bar:text_color="#333333"
+        bar:text_size="10sp"
+        bar:width="12dp" />
+
+    <RelativeLayout
+        android:id="@+id/review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ratingNo"
+        android:layout_marginTop="24dp">
+
+        <LinearLayout
+            android:id="@+id/layout_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/layout_bg_description"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="4.3"
+                android:layout_marginStart="3dp"
+                android:textColor="#fff761"
+                android:textSize="12dp">
+
+            </TextView>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_star_black_24dp"
+                android:layout_marginEnd="2dp">
+
+            </ImageView>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/layout_review"
+            android:layout_marginStart="12dp"
+            android:text="Awesome"
+            android:textStyle="bold"
+            android:textColor="#000"
+            style="@style/TextAppearance.AppCompat.Medium"/>
+        <TextView
+            android:id="@+id/desc_reviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_review"
+            android:layout_alignStart="@+id/layout_review"
+            android:layout_marginTop="8dp"
+            android:text="The meat is very much tasty and nutritious for health that I want to buy this more and more...\nI love those."
+            style="@style/TextAppearance.AppCompat.Small"
+            android:lineSpacingExtra="1dp"
+            android:layout_marginEnd="12dp"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/desc_reviews"
+            android:layout_alignStart="@id/desc_reviews"
+            android:layout_marginTop="10dp"
+            android:text="Lalit Choudhury, Jahanginagar"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/month_buyer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:layout_alignStart="@id/desc_reviews"
+            android:layout_marginTop="2dp"
+            android:text="Certified Buyer, 10 months ago"
+            android:textSize="10sp"/>
+
+        <ImageView
+            android:id="@+id/icon_dislike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/name"
+            android:layout_alignBottom="@+id/name"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_toStartOf="@+id/txt_dislike"
+            android:src="@drawable/ic_dislike" />
+
+        <TextView
+            android:id="@+id/txt_dislike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/name"
+            android:layout_alignBottom="@+id/name"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:layout_marginEnd="16dp"
+            android:text="Dislikes" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_dislike"
+            android:layout_alignStart="@+id/txt_dislike"
+            android:text="67"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="2dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/name"
+            android:layout_alignBottom="@+id/name"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_toStartOf="@+id/txt_like"
+            android:src="@drawable/ic_like" />
+
+        <TextView
+            android:id="@+id/txt_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/name"
+            android:layout_alignBottom="@+id/name"
+            android:layout_marginEnd="8dp"
+            android:textSize="12sp"
+            android:layout_toStartOf="@+id/icon_dislike"
+            android:gravity="center"
+            android:text="Likes" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_like"
+            android:layout_alignStart="@+id/txt_like"
+            android:text="348"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="2dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/review"
+        android:layout_marginTop="24dp">
+
+        <LinearLayout
+            android:id="@+id/layout_review2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/layout_bg_description"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="4.3"
+                android:layout_marginStart="3dp"
+                android:textColor="#fff761"
+                android:textSize="12dp">
+
+            </TextView>
+
+            <ImageView
+                android:layout_marginEnd="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_star_black_24dp">
+
+            </ImageView>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_review2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/layout_review2"
+            android:layout_marginStart="12dp"
+            android:text="Awesome"
+            android:textStyle="bold"
+            android:textColor="#000"
+            style="@style/TextAppearance.AppCompat.Medium"/>
+        <TextView
+            android:id="@+id/desc_reviews2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_review2"
+            android:layout_alignStart="@+id/layout_review2"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="12dp"
+            android:text="The meat is very much tasty and nutritious for health that I want to buy this more and more...\nI love those."
+            style="@style/TextAppearance.AppCompat.Small"
+            android:lineSpacingExtra="1dp"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/name2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/desc_reviews2"
+            android:layout_alignStart="@id/desc_reviews2"
+            android:layout_marginTop="10dp"
+            android:text="Lalit Choudhury, Jahanginagar"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/month_buyer2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name2"
+            android:layout_alignStart="@id/desc_reviews2"
+            android:layout_marginTop="2dp"
+            android:text="Certified Buyer, 10 months ago"
+            android:textSize="10sp"/>
+
+        <ImageView
+            android:id="@+id/icon_dislike2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/name2"
+            android:layout_alignBottom="@+id/name2"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_toStartOf="@+id/txt_dislike2"
+            android:src="@drawable/ic_dislike" />
+
+        <TextView
+            android:id="@+id/txt_dislike2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/name2"
+            android:layout_alignBottom="@+id/name2"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:layout_marginEnd="16dp"
+            android:text="Dislikes" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_dislike2"
+            android:layout_alignStart="@+id/txt_dislike2"
+            android:text="67"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="2dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/name2"
+            android:layout_alignBottom="@+id/name2"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_toStartOf="@+id/txt_like2"
+            android:src="@drawable/ic_like" />
+
+        <TextView
+            android:id="@+id/txt_like2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/name2"
+            android:layout_alignBottom="@+id/name2"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@+id/icon_dislike2"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:text="Likes" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_like2"
+            android:layout_alignStart="@+id/txt_like2"
+            android:text="348"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="2dp"/>
+
+    </RelativeLayout>
+</RelativeLayout>
+</ScrollView>
+</FrameLayout>

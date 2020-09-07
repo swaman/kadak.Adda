@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/googlecardview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="35dp">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/googlecardview"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Already have an account ?"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/googlecardview"
+                    android:layout_marginLeft="3dp"
+                    android:layout_toEndOf="@id/textView13"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Log In"
+                    android:textColor="#F1EC40"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/montserrat"
+                android:text="x"
+                android:textColor="#000000"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/signuptext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+
+                android:fontFamily="@font/montserrat"
+                android:text="@string/sign_up"
+                android:textSize="40sp" />
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/signuptext"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/button_black_"
+                android:backgroundTint="@color/com_facebook_button_background_color_disabled"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center_horizontal"
+                android:hint="Full Name"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="10dp"
+                android:paddingTop="12dp"
+                android:textAlignment="textStart"
+                android:textSize="18sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_id"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/user_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/button_black_"
+                android:backgroundTint="@color/com_facebook_button_background_color_disabled"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center_horizontal"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="10dp"
+                android:paddingTop="12dp"
+                android:textAlignment="textStart"
+                android:textSize="18sp" />
+
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/country_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/user_id"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                app:ccp_autoDetectCountry="true"
+                app:ccp_showNameCode="true"
+                app:ccp_textSize="16sp" />
+
+
+            <RelativeLayout
+                android:id="@+id/I_Accept_the_policy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/country_code"
+                android:layout_centerHorizontal="true" />
+
+            <Button
+                android:id="@+id/lets_go"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/P_C"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/button_black_"
+                android:fontFamily="@font/montserrat"
+                android:text="Create Account"
+                android:textColor="#F1EC40"
+                android:textSize="22sp" />
+
+            <EditText
+                android:id="@+id/Mob_nmbr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/user_id"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="20dp"
+                android:layout_toEndOf="@id/country_code"
+                android:ems="10"
+                android:fontFamily="@font/montserrat"
+                android:inputType="phone" />
+
+            <LinearLayout
+                android:id="@+id/T_S"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Mob_nmbr"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/country_code"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/by_continuing_you_agree_to_our"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/country_code"
+                    android:layout_marginLeft="3dp"
+                    android:layout_toEndOf="@id/textView8"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Terms of Services" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/P_C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/T_S"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="7dp">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textView8"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Privacy Policy" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textView8"
+                    android:layout_marginLeft="3dp"
+                    android:layout_toEndOf="@id/textView10"
+                    android:fontFamily="@font/montserrat"
+                    android:text="and"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textView8"
+                    android:layout_marginLeft="3dp"
+                    android:layout_toEndOf="@id/textView11"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Content Policy" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/or"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lets_go"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="9"
+                    android:background="#000000" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="2"
+                    android:gravity="center_horizontal"
+                    android:text="OR"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="9"
+                    android:background="#000000" />
+
+
+            </LinearLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/googlecardview"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/or"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:outlineProvider="bounds"
+                app:cardBackgroundColor="#FDFDFD"
+                app:cardCornerRadius="5dp">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="25sp"
+                    android:layout_height="25sp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    app:srcCompat="@drawable/google" />
+
+                <TextView
+                    android:id="@+id/google_conti"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Continue with Google"
+                    android:textColor="#0B0A0A"
+                    android:textSize="18sp" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
+

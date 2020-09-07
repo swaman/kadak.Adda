@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#ffffff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/toolbar_Empcart"
+        layout="@layout/bar_address"
+        tools:ignore="InvalidId"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:layout_below="@id/toolbar_Empcart">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/navigator"
+                android:layout_marginTop="20dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/nav1"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/blc_dot" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_weight="9"
+
+                    android:layout_marginTop="8dp"
+                    android:background="#F0ED40"
+                    />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/nav2"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/ylw_dot" />
+
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_weight="9"
+                    android:layout_marginTop="8dp"
+                    android:background="#000000"
+                    />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/nav3"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/blc_dot" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="18dp"
+                android:id="@+id/navigator_txt"
+                android:layout_below="@id/navigator"
+                android:layout_marginTop="2dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="3"
+                    android:text="Order"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="8.5"
+                    android:background="#FFFFFF" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="5"
+                    android:text="Address"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="#F0ED40"
+                    />
+
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_weight="6.5"
+                    android:layout_marginTop="8dp"
+                    android:background="#FFFFFF"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:text="Payments"
+                    android:layout_gravity="right"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:layout_weight="5"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/notSaved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/navigator_txt"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="200dp"
+                android:gravity="center"
+                android:text="You haven't Saved any Address yet !"
+                android:textColor="#000000"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textProceed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/notSaved"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:text="Add an Address to Proceed"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/addAddress"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/textProceed"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="200dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/button_black_"
+                android:text="Add an Address"
+                android:textAllCaps="false"
+                android:textColor="#f0ed40"
+                android:textSize="23sp" />
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KnowMoreActivity">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/bar_item"
+        tools:ignore="InvalidId"/>
+
+
+        <RelativeLayout
+            android:id="@+id/rel_lay_1"
+            android:layout_below="@id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image_turkey"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:scaleType="fitXY"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/favorite"
+                android:layout_width="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_height="40dp">
+
+                <ImageView
+                    android:id="@+id/white_circle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/white_circle"
+                    />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_favorite_24"
+                    app:layout_constraintLeft_toLeftOf="@id/white_circle"
+                    app:layout_constraintRight_toRightOf="@id/white_circle"
+                    app:layout_constraintTop_toTopOf="@id/white_circle"
+                    app:layout_constraintBottom_toBottomOf="@id/white_circle"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rel_lay_1"
+        android:layout_marginTop="-60dp"
+        android:background="@drawable/turkey_page_edge">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/turkey_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Turkey"
+                android:textSize="30sp"
+                android:textColor="#000000"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="30dp"/>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/rating_card"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                app:cardCornerRadius="4dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                app:cardBackgroundColor="#000000"
+                app:cardElevation="5dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+                    <TextView
+                        android:id="@+id/reviewAggregate"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4.3"
+                        android:textColor="#F0ED40"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:paddingVertical="5dp"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_star_black_24dp"
+                    android:paddingVertical="7dp"/>
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/noOfReviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_3_450_reviews"
+                android:layout_toLeftOf="@id/rating_card"
+                android:layout_marginRight="5dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="23dp"/>
+            <TextView
+                android:id="@+id/price_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_below="@id/turkey_txt"
+                android:textColor="#000000"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="30dp"/>
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹ 600.00"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/price_txt"
+                android:layout_below="@id/turkey_txt"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"/>
+            <TextView
+                android:id="@+id/discount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(10% off)"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/price"
+                android:layout_below="@id/turkey_txt"
+                android:layout_marginTop="5dp"
+                android:textColor="#000000"
+                android:layout_marginLeft="10dp"/>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/price_txt"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="30dp"
+                app:tabIndicatorColor="#FF0000"
+                app:tabIndicatorHeight="4dp"
+                app:tabSelectedTextColor="#FF0000">
+            </com.google.android.material.tabs.TabLayout>
+            <androidx.viewpager2.widget.ViewPager2
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:id="@+id/view_pager"
+                android:layout_below="@id/tab"
+                android:layout_marginRight="30dp"/>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+   />
+
+
+
+
+</RelativeLayout>

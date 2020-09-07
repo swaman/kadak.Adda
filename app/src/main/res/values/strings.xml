@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">kadak Adda</string>
+    <string name="facebook_app_id">915366395632704</string>
+    <string name="fb_login_protocol_scheme">fb915366395632704</string>
+    <string name="by_continuing_you_agree_to_our">By continuing, you agree to our</string>
+    <string name="enter_your_phone_number_and_we_will_send_an_otp_to_continue">Enter your phone number and we will send an OTP to continue</string>
+    <string name="shared_preferences">SHARED_PREFERENCES</string>
+    <string name="product_list">productList</string>
+    <string name="user_cart">USER_CART</string>
+
+    <string name="title_activity_ordersummary">OrdersummaryActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="new_user">New User ?</string>
+    <string name="let_s_go"><![CDATA[Let\'s Go]]></string>
+    <string name="remember_me">Remember Me</string>
+    <string name="todo">TODO</string>
+    <string name="skip">SKIP</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="or">OR</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="password1">Password</string>
+    <string name="user_id1">User Id</string>
+    <string name="log_in">Log In</string>
+    <string name="skip1">SKIP</string>
+    <string name="let_s_go1"><![CDATA[Let\'s Go]]></string>
+    <string name="policy_and_terms">Policy and terms</string>
+    <string name="i_accept_the">I accept the</string>
+    <string name="sign_up1">Sign Up</string>
+    <string name="enter_otp1">Enter OTP</string>
+    <string name="mobile_number1">Mobile Number</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="user_id">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_up_with">Sign Up with</string>
+    <string name="todo1">TODO</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="tab_text_1">Ongoing Orders</string>
+    <string name="tab_text_2">Past Orders</string>
+    <string name="selectedAddress">selectedAddress</string>
+    <string name="knowMoreProduct">KnowMoreProduct</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="turkey_details">Turkeys are native to North America. They consume Turkey throughout the year, with Turkey breast and sliced Turkey being popular sandwich/salad meats. Turkey is similar to chicken, both nutritionally and in items of taste, but it has a stronger flavour and dried texture</string>
+    <string name="good_list"><ul><li>It contains many amino acids(18 kinds amino acid among which 8 are essential to our body) , vitamins. B1, B2, B6, E and C, and other nutrients.</li> \n
+    <li>It is high in iron and amino acids and low in fat and cholesterol.</li> \n
+    <li>It is disease resistance and is valued for the quality and flavour of its black meat.</li></ul>
+    </string>
+    <string name="cook_list"><ul><li>Preheat oven to 325 degrees F(165 degrees C). Place onion, celery, and carrot in a large, shallow roasting pan.</li> \n
+    <li>Place turkey, breast side up, on top of the vegetables in the roasting pan. Pat the outside and inside of the turkey ry with paper towels. </li> \n
+    <li>Combine salt, black pepper and cayenne</li></ul>
+    </string>
+    <string name="health_list"><ul><li>Turkey meat contains calcium, magnesium, protein and Vitamin D which helps to strengthen your bones and prevents osteoporosis.</li> \n
+    <li>Selenium is a type of antioxident which helps to prevent cancer. The study states that selenium supplements can help to low the risk of causing coronary heart diseases.</li> \n
+    <li>Vitamin B-6 helps to boost the body metabolism and helps to lose weigth. Lower metabolism rate results in the weight gain. high cholesterol and triglycerides, risk of getting heart diseases and high blood pressure. To increase your body metabolism</li></ul>
+    </string>
+    <string name="_3_450_reviews">3,450 reviews</string>
+
+</resources>

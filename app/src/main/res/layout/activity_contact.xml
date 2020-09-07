@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_Empcart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:drawableLeft="@drawable/abc_vector_test"
+        android:gravity="right"
+        android:text="Contact Us"
+        android:textColor="#F1EC40"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:drawableTint="#F1EC40"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar_Empcart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_Empcart"
+        app:layout_constraintVertical_bias="0.13">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:drawablePadding="10dp"
+            android:text="KadakAdda, Diversion Road, Ambah District - Morena"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="35dp"
+            android:text="Madhya Pradesh- 476111, India"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:autoLink="phone"
+            android:drawableLeft="@android:drawable/stat_sys_phone_call"
+            android:drawablePadding="10dp"
+            android:linksClickable="true"
+            android:text="+91 9111152901"
+            android:textColor="#000000"
+            android:textColorLink="#000000"
+            android:textSize="20sp"
+            app:drawableTint="#000000" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoLink="email"
+            android:drawableLeft="@android:drawable/sym_action_email"
+            android:drawablePadding="10dp"
+            android:linksClickable="true"
+            android:paddingTop="20dp"
+            android:text="support@kadakAdda.in"
+            android:textColor="#000000"
+            android:textColorLink="#000000"
+            android:textSize="20sp"
+            app:drawableTint="#000000" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoLink="email"
+            android:drawableLeft="@android:drawable/sym_action_email"
+            android:drawablePadding="10dp"
+            android:linksClickable="true"
+            android:paddingTop="20dp"
+            android:text="sale@kadakAdda.in"
+            android:textColor="#000000"
+            android:textColorLink="#000000"
+            android:textSize="20sp"
+            app:drawableTint="#000000" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@android:color/black"
+    android:padding="16dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    <!-- this is use to show white in dark background -->
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginTop="24dp"
+        android:id="@+id/image_header"
+        android:layout_width="69dp"
+        android:layout_height="89dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_account_circle_black_24dp" />
+
+    <TextView
+
+        android:id="@+id/nmtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/image_header"
+        android:layout_alignBottom="@id/image_header"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@+id/image_header"
+        android:fontFamily="@font/semibold"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:text="User Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#fff761"
+        android:textSize="20sp" />
+
+
+</RelativeLayout>

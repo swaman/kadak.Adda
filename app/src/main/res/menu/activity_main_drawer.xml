@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_Home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home"
+            />
+        <item
+            android:id="@+id/nav_orders"
+            android:icon="@drawable/ic_access_time_black_24dp"
+            android:title="My Orders" />
+        <item
+            android:iconTint="#fff761"
+            android:id="@+id/nav_favorders"
+            android:icon="@drawable/ic_favorite_black_24dp"
+            android:title="Favourite Orders" />
+        <item
+            android:id="@+id/nav_cart"
+            android:icon="@drawable/ic_shopping_cart_black_24dp"
+            android:title="Cart" />
+        <item
+            android:iconTint="#fff761"
+            android:id="@+id/nav_notification"
+            android:icon="@drawable/ic_notifications_black_24dp"
+            android:title="Notification" />
+
+        <item
+            android:iconTint="#fff761"
+            android:id="@+id/nav_address"
+            android:icon="@drawable/ic_place_black_24dp"
+            android:title="Address" />
+
+        <item
+            android:iconTint="#fff761"
+            android:id="@+id/nav_payment"
+            android:icon="@drawable/ic_payment_black_24dp"
+            android:title="Payment Options" />
+
+
+
+        <item
+            android:iconTint="#fff761"
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_group_black_24dp"
+            android:title="About Us" />
+        <item
+            android:iconTint="#fff761"
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/ic_local_phone_black_24dp"
+            android:title="Contact Us" />
+        <item
+            android:iconTint="#fff761"
+            android:id="@+id/nav_signout"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="Signout" />
+
+        <item
+            android:iconTint="#fff761"
+            android:icon="@drawable/ic_feedback_black_24dp"
+            android:id="@+id/feedback"
+            android:title="Send Feedback"
+            />
+
+    </group>
+</menu>

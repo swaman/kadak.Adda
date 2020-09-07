@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#000000"
+    android:id="@+id/toolbar_Empcart"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:popupTheme="@style/MenuuStyle"
+    >
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/back_arrow"
+        android:background="@drawable/back_arw"
+        android:textColor="#F0ED40"
+        android:textSize="30sp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:layout_toRightOf="@id/back_arrow"
+        android:text="Payment Confirmation"
+        android:layout_marginTop="10dp"
+        android:textColor="#F0ED40"
+        android:id="@+id/Order_summary_txt"
+        android:textStyle="bold"/>
+
+</androidx.appcompat.widget.Toolbar>
