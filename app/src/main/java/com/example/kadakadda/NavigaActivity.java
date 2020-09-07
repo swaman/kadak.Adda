@@ -75,7 +75,7 @@ public class NavigaActivity extends AppCompatActivity {
     ArrayList<CartItem> cartItems;
     HomePagerAdapter pagerAdapter;
 
-    boolean downloaded = false;
+    boolean downloaded;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,11 +108,29 @@ public class NavigaActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         products = new ArrayList<>();
+        downloaded = false;
         if(savedInstanceState!=null){
+            Log.d(TAG, "onCreate: Not null");
             downloaded = savedInstanceState.getBoolean(LOADED);
             if(downloaded)
                 products = savedInstanceState.getParcelableArrayList(PROD);
+            else
+                Log.d(TAG, "onCreate: Data was not downloaded.");
         }
+        /*
+        if(savedInstanceState!=null){
+            Log.d(TAG, "onCreate: savedInstanceState not null");
+            downloaded = savedInstanceState.getBoolean(LOADED, false);
+            if(downloaded) {
+                Log.d(TAG, "onCreate: Using downloaded items");
+                products = savedInstanceState.getParcelableArrayList(PROD);
+                storeProductListLocal();
+            }else{
+                fetchProductsList();
+            }
+        }else{
+            fetchProductsList();
+        }*/
         fetchProductsList();
         headerprofile();
 
@@ -307,6 +325,7 @@ public class NavigaActivity extends AppCompatActivity {
                                     Log.i("HI", "Added " + product.id);
                                 }
                                 //pagerAdapter.notifyDataSetChanged();
+                                downloaded = true;
                                 storeProductListLocal();
                             } else {
                                 Log.i(TAG, task.getException().getLocalizedMessage());
@@ -315,7 +334,8 @@ public class NavigaActivity extends AppCompatActivity {
                         }
                     });
         } else{
-            fetchCloudCart();
+            //fetchCloudCart();
+            storeProductListLocal();
         }
     }
 
@@ -408,8 +428,8 @@ public class NavigaActivity extends AppCompatActivity {
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
-        super.onSaveInstanceState(outState, outPersistentState);
         outState.putBoolean(LOADED, downloaded);
         outState.putParcelableArrayList(PROD, products);
+        super.onSaveInstanceState(outState, outPersistentState);
     }
 }

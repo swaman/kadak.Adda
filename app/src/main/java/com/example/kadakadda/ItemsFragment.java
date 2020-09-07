@@ -40,6 +40,8 @@ import static com.example.kadakadda.Adapters.HomePagerAdapter.MEAT_TYPE;
 public class ItemsFragment extends Fragment implements HomeItemAdapter.HomeItemListener {
 
     private static final String TAG = "ItemsFragment";
+    public static final String LIST = "ProductList";
+
     private ArrayList<Product> products;
     private RecyclerView recyclerView;
     private HomeItemAdapter adapter;
@@ -74,7 +76,6 @@ public class ItemsFragment extends Fragment implements HomeItemAdapter.HomeItemL
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        adapter = new HomeItemAdapter(foodType, context, products, ItemsFragment.this);
     }
 
     @Override
@@ -82,8 +83,14 @@ public class ItemsFragment extends Fragment implements HomeItemAdapter.HomeItemL
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_items, container, false);
+        if(savedInstanceState!=null){
+            Log.d(TAG, "onCreateView: Using loaded product list in fragment");
+            products = savedInstanceState.getParcelableArrayList(LIST);
+        }
+
         recyclerView = view.findViewById(R.id.egg_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(context, RecyclerView.VERTICAL, false));
+        adapter = new HomeItemAdapter(foodType, context, products, ItemsFragment.this);
         recyclerView.setAdapter(adapter);
         return view;
     }
@@ -173,5 +180,11 @@ public class ItemsFragment extends Fragment implements HomeItemAdapter.HomeItemL
             cart.put(cartItem.product.id, cartItem.quantity);
         }
         return cart;
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList(LIST, products);
     }
 }

@@ -2,6 +2,7 @@ package com.example.kadakadda;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,10 +45,13 @@ public class PastOrder_f extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    private static final String TAG = "PastOrder_f";
+    public static final String LIST = "OrderList";
+    public static final String DOWNLOADED = "Downloaded";
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private boolean downloaded;
 
     public PastOrder_f() {
         // Required empty public constructor
@@ -80,7 +84,7 @@ public class PastOrder_f extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-
+        downloaded = false;
     }
 
     @Override
@@ -94,9 +98,15 @@ public class PastOrder_f extends Fragment {
 
         pastOrderRecyclerView = (RecyclerView) view.findViewById(R.id.pastOrderRecyclerView);
         progressBar = view.findViewById(R.id.progress_bar);
-        progressBar.setVisibility(View.VISIBLE);
 
-        StorePastOrdersDataInArray();
+        if(savedInstanceState!=null && savedInstanceState.getBoolean(DOWNLOADED, false)){
+            Log.d(TAG, "onCreateView: savedInstanceState not null");
+            pastOrderItems = savedInstanceState.getParcelableArrayList(LIST);
+            setUpAdapter();
+        }else {
+            progressBar.setVisibility(View.VISIBLE);
+            StorePastOrdersDataInArray();
+        }
 
         return view;
     }
@@ -122,10 +132,7 @@ public class PastOrder_f extends Fragment {
                                     }
                                 }
                                 //pastOrderAdapter.notifyDataSetChanged();
-                                pastOrderAdapter = new PastOrderAdapter(pastOrderItems);
-                                pastOrderRecyclerView.setLayoutManager(new LinearLayoutManager(context));
-                                pastOrderRecyclerView.setAdapter(pastOrderAdapter);
-                                progressBar.setVisibility(View.GONE);
+                                setUpAdapter();
                             } else {
                                 Toast.makeText(getContext(), "Error" + task.getException(), Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.GONE);
@@ -133,5 +140,20 @@ public class PastOrder_f extends Fragment {
                         }
                     });
         }
+    }
+
+    private void setUpAdapter() {
+        pastOrderAdapter = new PastOrderAdapter(pastOrderItems);
+        pastOrderRecyclerView.setLayoutManager(new LinearLayoutManager(context));
+        pastOrderRecyclerView.setAdapter(pastOrderAdapter);
+        progressBar.setVisibility(View.GONE);
+        downloaded = true;
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(DOWNLOADED, downloaded);
+        outState.putParcelableArrayList(LIST, pastOrderItems);
     }
 }

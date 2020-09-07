@@ -47,6 +47,9 @@ public class Ongoing_f extends Fragment implements OnGoingParentAdapter.OnGoingP
     public static final String PRODUCT_TYPE = "type";
     public static final String TAG = "OnGoingParentActivity";
 
+    public static final String LIST = "OrderList";
+    public static final String DOWNLOADED = "Downloaded";
+
     public RecyclerView onGoingParentRecyclerView,childRecyclerView;
     ProgressBar progressBar;
     public OnGoingParentAdapter onGoingParentAdapter;
@@ -58,7 +61,7 @@ public class Ongoing_f extends Fragment implements OnGoingParentAdapter.OnGoingP
     Gson gson;
 
     Context mContext = this.getContext();
-
+    boolean downloaded;
 
     ArrayList<Product> products;
     ArrayList<OnGoingOrderParentItems> onGoingOrderParentItemsArrayList = new ArrayList<>();
@@ -83,7 +86,16 @@ public class Ongoing_f extends Fragment implements OnGoingParentAdapter.OnGoingP
         mContext = view.getContext();
         onGoingParentRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewParent);
         progressBar = view.findViewById(R.id.progress_bar);
-        progressBar.setVisibility(View.VISIBLE);
+
+        if(savedInstanceState!=null) {
+            Log.d(TAG, "onCreateView: savedInstanceState not null");
+            downloaded = savedInstanceState.getBoolean(DOWNLOADED, false);
+            if (downloaded)
+                onGoingOrderParentItemsArrayList = savedInstanceState.getParcelableArrayList(LIST);
+        }
+        else
+            downloaded = false;
+
         loadProductListLocal();
 
         //childRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewChild);
@@ -131,26 +143,22 @@ public class Ongoing_f extends Fragment implements OnGoingParentAdapter.OnGoingP
                                     if (docData.isEmpty()) {
                                         throw new NullPointerException("User profile not exist");
                                     } else {
-
-
                                         if (!documentSnapshot.getBoolean("order_cancelled") && !documentSnapshot.getBoolean("order_delivered")) {
                                             HashMap<String, Object> itemsList = (HashMap<String, Object>) docData.get("items");
-                                            onGoingOrderParentItemsArrayList.add(new OnGoingOrderParentItems(documentSnapshot.getString("itemNumber"), documentSnapshot.getString("total"), documentSnapshot.getString("orderID"), documentSnapshot.getDate("timePlaced").toString(), itemsList, documentSnapshot.getString("delivered By")));
-
-                                            /*itemNum = String.valueOf(documentSnapshot.getLong("itemNumber"));
-                                            totalPrice = documentSnapshot.getString("total");
-                                            orderId = documentSnapshot.getString("orderID");
-                                            timePlaced = documentSnapshot.getDate("timePlaced").toString();*/
-
-
+                                            onGoingOrderParentItemsArrayList.add(
+                                                    new OnGoingOrderParentItems(
+                                                            documentSnapshot.getString("itemNumber"),
+                                                            documentSnapshot.getString("total"),
+                                                            documentSnapshot.getString("orderID"),
+                                                            documentSnapshot.getDate("timePlaced").toString(),
+                                                            itemsList, documentSnapshot.getString("delivered By")
+                                                    )
+                                            );
                                         }
                                     }
                                 }
-                                onGoingParentAdapter = new OnGoingParentAdapter(onGoingOrderParentItemsArrayList, products, mContext, Ongoing_f.this);
-                                onGoingParentRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-                                onGoingParentRecyclerView.setAdapter(onGoingParentAdapter);
-                                onGoingParentAdapter.notifyDataSetChanged();
-                                progressBar.setVisibility(View.GONE);
+                                downloaded = true;
+                                setUpAdapter();
                             } else {
                                 Toast.makeText(getContext(), "Error:" + task.getException(), Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.GONE);
@@ -162,13 +170,27 @@ public class Ongoing_f extends Fragment implements OnGoingParentAdapter.OnGoingP
         }
     }
 
+    private void setUpAdapter() {
+        onGoingParentAdapter = new OnGoingParentAdapter(onGoingOrderParentItemsArrayList, products, mContext, Ongoing_f.this);
+        onGoingParentRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        onGoingParentRecyclerView.setAdapter(onGoingParentAdapter);
+        onGoingParentAdapter.notifyDataSetChanged();
+        progressBar.setVisibility(View.GONE);
+    }
+
     public void loadProductListLocal() {
         try{
             String storedProductList = sharedPreferences.getString(getString(R.string.product_list), (new JSONObject()).toString());
             java.lang.reflect.Type type = new TypeToken<ArrayList<Product>>(){}.getType();
             products =  gson.fromJson(storedProductList, type);
             Log.i(TAG, "loadProductListLocal: "+storedProductList);
-            StoreOngoingOrderListInArray();
+            if(downloaded){
+
+                setUpAdapter();
+            }else {
+                progressBar.setVisibility(View.VISIBLE);
+                StoreOngoingOrderListInArray();
+            }
         }catch(Exception e){
             e.printStackTrace();
             fetchProductsList();
@@ -228,5 +250,12 @@ public class Ongoing_f extends Fragment implements OnGoingParentAdapter.OnGoingP
     public void onChildTrackClicked(int position) {
         OnGoingOrderParentItems currentOnGoingOrderItem = onGoingOrderParentItemsArrayList.get(position);
         openingTrackActivity(currentOnGoingOrderItem.getItemNum(), currentOnGoingOrderItem.getTotalCost(), currentOnGoingOrderItem.getOrderId(), currentOnGoingOrderItem.getDateOrdered());
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(DOWNLOADED, downloaded);
+        outState.putParcelableArrayList(LIST, onGoingOrderParentItemsArrayList);
     }
 }
