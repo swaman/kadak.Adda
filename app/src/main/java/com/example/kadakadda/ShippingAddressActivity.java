@@ -31,7 +31,7 @@ public class ShippingAddressActivity extends AppCompatActivity {
     EditText landmarkEditText;
     EditText nameEditText;
     EditText mobileNoEditText;
-    Button saveButton;
+    Button saveButton, backButton;
 
     String value;
 
@@ -64,6 +64,7 @@ public class ShippingAddressActivity extends AppCompatActivity {
         nameEditText = findViewById(R.id.name);
         mobileNoEditText= findViewById(R.id.mobile);
         saveButton =findViewById(R.id.save_address);
+        backButton = findViewById(R.id.back_arrow);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -83,7 +84,12 @@ public class ShippingAddressActivity extends AppCompatActivity {
                 saveAddress();
             }
         });
-
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
     public void saveAddress(){
         String pincode =pincodeEditText.getText().toString();
@@ -136,5 +142,10 @@ public class ShippingAddressActivity extends AppCompatActivity {
             intent = new Intent(ShippingAddressActivity.this, AddressEmptyActivity.class);
         }
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        sendUserBack();
     }
 }

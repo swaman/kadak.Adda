@@ -181,11 +181,13 @@ public class NavigaActivity extends AppCompatActivity {
 
 
     public void cartEntry() {
+        progressBar.setVisibility(View.VISIBLE);
         firebaseFirestore.collection("user").document(user.getUid())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        progressBar.setVisibility(View.GONE);
                         if(task.isSuccessful()){
                             Map<String, Object> map = task.getResult().getData();
                             Map<String, Object> cart = (Map<String, Object>) map.get("cart");
@@ -205,8 +207,6 @@ public class NavigaActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-
     }
 
 
@@ -235,14 +235,6 @@ public class NavigaActivity extends AppCompatActivity {
                     case R.id.nav_notification:
                         intent = new Intent(NavigaActivity.this, NotificationActivity.class);
                         startActivity(intent);
-                        break;
-                    case R.id.nav_address:
-                        //intent = new Intent(NavigaActivity.this, UserAddress.class);
-                        //startActivity(intent);
-                        break;
-                    case R.id.nav_payment:
-                        //intent = new Intent(NavigaActivity.this, PaymentActivity.class);
-                        //startActivity(intent);
                         break;
                     case R.id.nav_about:
                         intent = new Intent(NavigaActivity.this, AboutActivity.class);

@@ -25,6 +25,8 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class AddressOptionActivity extends AppCompatActivity {
     RadioGroup radioGroup;
     RadioButton radioButton, add_1, add_2, add_3;
@@ -41,6 +43,7 @@ public class AddressOptionActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
 
     DocumentReference docRef;
+    CircleImageView nav1, nav2, nav3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

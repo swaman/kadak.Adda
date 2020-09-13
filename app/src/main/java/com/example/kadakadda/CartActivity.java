@@ -121,7 +121,7 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.CartI
             public void onClick(View v) {
                 //TODO
                 if(total>0) {
-                    //startActivity(new Intent(CartActivity.this, UserAddress.class));
+                    sendUserToAddress();
                 }else{
                     Toast.makeText(CartActivity.this, "Your cart is empty.", Toast.LENGTH_SHORT).show();
                 }
@@ -501,8 +501,40 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.CartI
         updateTotals();
     }
 
-    public void sendUserToAddress(){
+    /*public void sendUserToAddress(){
         Intent intent = new Intent(CartActivity.this, AddressOptionActivity.class);
         startActivity(intent);
+    }*/
+
+    public void sendUserToAddress(){
+        progressBar.setVisibility(View.VISIBLE);
+        firebaseFirestore
+                .collection("user")
+                .document(user.getUid())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                progressBar.setVisibility(View.GONE);
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        if (document.getData().get("pDetails")!=null){
+                            Map<String, Object> pDetails = (Map<String, Object>) document.getData().get("pDetails");
+                            ArrayList<String> addresses = (ArrayList<String>) pDetails.get("addresses");
+                            Intent intent;
+                            if(addresses==null || addresses.size()==0)
+                                intent = new Intent(CartActivity.this, AddressEmptyActivity.class);
+                            else
+                                intent = new Intent(CartActivity.this, AddressOptionActivity.class);
+                            startActivity(intent);
+                        }
+                    }
+
+                } else {
+                    Toast.makeText(CartActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
